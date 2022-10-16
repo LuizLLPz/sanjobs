@@ -1,24 +1,7 @@
-# sanjobs_frontend
+# Sanjobs frontend
 
-## Project setup
-```
-yarn install
-```
+### Esse é o projeto front end do website Sanjobs
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## Principal tecnologia usada:
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D)

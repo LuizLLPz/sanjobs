@@ -1,0 +1,65 @@
+<template>
+  <div class="navbar">
+    <div class="navbar__search">
+      <SearchMain/>
+    </div>
+    <div class="navbar__link_container">
+      <NavBarLink name="Main" fa-icon="fa-house"/>
+      <NavBarLink name="Vagas" fa-icon="fa-suitcase"/>
+      <NavBarLink name="Empresas" fa-icon="fa-building-columns"/>
+      <NavBarLink name="Currículo" fa-icon="fa-file-lines"/>
+      <NavBarLink name="Mensagens" fa-icon="fa-envelope"/>
+    </div>
+  </div>
+</template>
+
+<script>
+import NavBarLink from "@/components/layout/NavBarLink";
+import SearchMain from "@/components/form/SearchMain";
+export default {
+  name: 'NavBar',
+  props: {
+
+  },
+  methods: {
+    
+  },
+  components: {
+    SearchMain,
+    NavBarLink
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+
+.navbar, .navbar__search { display: flex; }
+
+.navbar__search, .navbar__link_container { background-color: inherit }
+
+.navbar {
+  width: 100%;
+  display: flex;
+  background-color: var(--color-primary);
+}
+
+
+.navbar__search {
+  height: 45px;
+  align-items: center;
+  padding-left: 40%;
+}
+
+
+.navbar__link_container {
+  display: grid;
+  padding-top: 5px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  position: absolute;
+  height: 65px;
+  width: 100%;
+  bottom: 0;
+}
+
+</style>

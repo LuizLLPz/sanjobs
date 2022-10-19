@@ -18,9 +18,6 @@ import NavBarLink from "@/components/layout/NavBarLink";
 import SearchMain from "@/components/form/SearchMain";
 export default {
   name: 'NavBar',
-  props: {
-
-  },
   methods: {
     
   },
@@ -56,7 +53,7 @@ export default {
   display: grid;
   padding-top: 5px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  position: absolute;
+  position: fixed;
   height: 65px;
   width: 100%;
   bottom: 0;

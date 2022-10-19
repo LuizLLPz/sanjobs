@@ -10,17 +10,63 @@
       Ver oportunidades
     </button>
   </div>
+  <div class="job_container">
+    <JobCard v-for="job of jobs" v-bind:job="job" v-bind:key="job"/>
+  </div>
+  <div class="footer">
+
+  </div>
+
 </template>
 
  <script>
 import NavBar from './components/layout/NavBar.vue'
 import MainHeading from "@/components/typography/MainHeading";
+import JobCard from "@/components/jobs/JobCard";
 
 export default {
   name: 'App',
+  data() {
+    return {
+    jobs: [{
+      title: 'Auxiliar administrativo',
+      wage: 'R$1.200',
+      publishedAt: 'Publicado há 1 dia',
+      city: 'São José dos Pinhais',
+      company: 'Maçã',
+      modality: 'Presencial',
+      seniority: 'Auxiliar'
+    }, {
+      title: 'Desenvolvedor Web',
+      wage: 'R$1.900',
+      publishedAt: 'Publicado há 1 semana',
+      city: 'Curitiba',
+      company: 'Maçã',
+      modality: 'Remoto',
+      seniority: 'Estágio'
+    }, {
+      title: 'Vendedor Interno',
+      wage: 'R$900',
+      publishedAt: 'Publicado há 2 dias',
+      city: 'São José dos Pinhais',
+      company: 'Maçã',
+      modality: 'Presencial',
+      seniority: 'Auxiliar'
+    }, {
+      title: 'Product designer',
+      wage: 'R$3.200',
+      publishedAt: 'Publicado há 1 mês',
+      city: 'São José dos Pinhais',
+      company: 'Maçã',
+      modality: 'Presencial',
+      seniority: 'Júnior'
+    }]
+    }
+  },
   components: {
     NavBar,
-    MainHeading
+    MainHeading,
+    JobCard
   }
 }
 </script>
@@ -67,5 +113,13 @@ body { margin: 0; }
   border-radius: 14px;
 }
 
+.footer { height: 200px; }
+
+.job_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
 
 </style>

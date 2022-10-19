@@ -25,9 +25,12 @@ export default {
   height: 25px;
   border: 0;
 }
+
+
 .search_form {
   width: 240px;
 }
+
 
 .search_form__text {
   background-color: var(--color-form);

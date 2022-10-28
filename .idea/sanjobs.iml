@@ -116,6 +116,7 @@
       <excludeFolder url="file://$MODULE_DIR$/sanjobs_backend/vendor/tijsverkoyen/css-to-inline-styles" />
       <excludeFolder url="file://$MODULE_DIR$/sanjobs_backend/vendor/dragonmantank/cron-expression" />
       <excludeFolder url="file://$MODULE_DIR$/sanjobs_backend/vendor/graham-campbell/result-type" />
+      <excludeFolder url="file://$MODULE_DIR$/sanjobs_backend/vendor/predis/predis" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

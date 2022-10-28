@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redis;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,13 +22,42 @@ class APIResponse {
     public mixed $data;
 }
 
+Route::get('/session', function (Request $request) {
+    $resp = new APIResponse();
+    $sid = $request->cookie('sid');
+    if (!$sid) {
+        $resp->message = 'Bad Request';
+        return response (
+            json_encode($resp),
+            400);
+    }
+
+    $uid = Redis::get($sid);
+    if (!$uid) {
+        $resp->message = 'Session Expired';
+        return response (
+            json_encode($resp),
+            401);
+    }
+
+    $user = DB::table('User')->where('id', $uid)->limit(1)->first();
+    if (!$user) {
+        $resp->message = 'User not found!';
+        return response (
+            json_encode($resp),
+            404
+        );
+    }
+
+});
+
 
 Route::post('/session', function (Request $request) {
     $resp = new APIResponse();
     $email = $request->input('email');
     $password = $request->input('password');
     if (!$email || !$password) {
-        $resp->message = 'BAD REQUEST';
+        $resp->message = 'Bad Request';
         return response (
             json_encode($resp),
             400);
@@ -52,5 +82,10 @@ Route::post('/session', function (Request $request) {
 
     $resp->message = 'Logged in Successfully!';
     $resp->data = $user;
-    return response(json_encode($resp));
+    $sid = uniqid().$user->name;
+    Redis::set($sid, $user->id);
+    return response(
+        json_encode($resp)
+    )->cookie('sid', $sid, 2*24*60);
 });
+

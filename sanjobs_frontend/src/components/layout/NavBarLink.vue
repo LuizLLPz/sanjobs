@@ -1,14 +1,15 @@
 <template>
-  <div class="navbar__link">
+  <router-link v-bind:to="vlink" class="navbar__link">
     <div class="navbar__link__image fa-solid" :class=" faIcon "></div>
     <a href="" class="navbar__link__anchor">{{ name }}</a>
-  </div>
+  </router-link>
 
 </template>
 
 <script>
 export default {
   props: {
+    vlink: String,
     name: String,
     faIcon: String,
   }
@@ -21,6 +22,7 @@ export default {
   width: 1fr;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
   gap: 2px;
 }
 .navbar__link__image, .navbar__link__anchor {

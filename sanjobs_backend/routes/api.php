@@ -94,3 +94,28 @@ Route::post('/session', function (Request $request) {
     )->cookie('sid', $sid, 2*24*60);
 });
 
+
+Route::delete('/session', function (Request $request) {
+    $resp = new APIResponse();
+    $sid = $request->cookie('sid');
+    if (!$sid) {
+        $resp->message = 'Bad Request';
+        return response (
+            json_encode($resp),
+            400);
+    }
+
+    $uid = Redis::get($sid);
+    if (!$uid) {
+        $resp->message = 'Session Already Expired';
+        return response (
+            json_encode($resp),
+            401);
+    }
+
+    Redis::del($sid);
+    $resp->message = 'Logged out Successfully!';
+    return response(
+        json_encode($resp)
+    );
+});

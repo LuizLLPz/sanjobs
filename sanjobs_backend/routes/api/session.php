@@ -1,12 +1,11 @@
 <?php
 
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redis;
-
+use App\Helpers\APIResponse;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,11 +17,6 @@ use Illuminate\Support\Facades\Redis;
 |
 */
 
-class APIResponse
-{
-    public string $message;
-    public mixed $data;
-}
 
 
 Route::get('/session', function (Request $request) {

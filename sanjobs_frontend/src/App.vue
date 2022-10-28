@@ -1,53 +1,18 @@
 <!--suppress ALL -->
 <template>
   <NavBar/>
-
-  <div class="heading">
-    <MainHeading text="Sua oportunidade perto de você"/>
-    <p class="heading__secondary">
-      Com o Sanjobs encontrar emprego se torna uma tarefa muito mais fácil!
-    </p>
-    <button class="heading__action">
-      Ver oportunidades
-    </button>
-  </div>
-  <div class="job_container">
-    <HighlightHeading text="Vagas relacionadas a" highlight='"marketing e design"'></HighlightHeading>
-    <JobCard v-for="job of jobs" v-bind:job="job" v-bind:key="job"/>
-  </div>
-  <div class="footer">
-
-  </div>
-
+  <router-view></router-view>
 </template>
 
  <script>
-import NavBar from './components/layout/NavBar.vue'
-import MainHeading from "@/components/typography/MainHeading";
-import HighlightHeading from "@/components/typography/HighlightHeading";
-import JobCard from "@/components/jobs/JobCard";
+import NavBar from '@/components/layout/NavBar.vue';
 
 export default {
   name: 'App',
-  data() {
-    return {
-    jobs: [{
-      title: 'Auxiliar administrativo',
-      wage: 'R$1.200',
-      publishedAt: 'Publicado há 1 dia',
-      city: 'São José dos Pinhais',
-      company: 'Maçã',
-      modality: 'Presencial',
-      seniority: 'Auxiliar'
-    }]}
-  },
-  components: {
+  components : {
     NavBar,
-    MainHeading,
-    JobCard,
-    HighlightHeading
+  },
 
-  }
 }
 </script>
 

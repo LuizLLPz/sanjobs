@@ -48,6 +48,11 @@ Route::get('/session', function (Request $request) {
             404
         );
     }
+    $resp->message = 'OK';
+    $resp->data = $user;
+    return response (
+        json_encode($resp)
+    );
 
 });
 

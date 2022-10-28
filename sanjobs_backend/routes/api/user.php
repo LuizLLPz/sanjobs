@@ -19,6 +19,7 @@ Route::post('/user', function (Request $request) {
             json_encode($resp),
             400);
     }
+
     $id = DB::table('User')->insertGetId([
         'name' => $name,
         'surname' => $surname,
@@ -27,13 +28,13 @@ Route::post('/user', function (Request $request) {
         'overview' => $overview,
         'created_at' => now(),
     ]);
-
-    Redis::set('sid', $id);
+    $sid = uniqid().$id;
+    Redis::set($sid, $id);
     $resp->message = 'User registered successfully';
     $resp->data = $id;
     return response(
         json_encode($resp)
-    )->cookie('sid', $id, 2 * 24 * 60);
+    )->cookie('sid', $sid, 2 * 24 * 60);
 
 
 });

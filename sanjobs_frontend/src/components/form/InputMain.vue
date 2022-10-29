@@ -1,9 +1,9 @@
 <template>
   <div class="input_main">
-    <span>{{ label }}</span>
-    <input v-bind:type="type" v-bind:placeholder="placeholder"
+    <span class="input_main__label">{{ label }}</span>
+    <input class="input_main__data" v-bind:type="type" v-bind:placeholder="placeholder"
            @change="(e) => emitParent(e)">
-    <span class="hidden">lifting state{{ error }}</span>
+    <span class="input_main__error hidden">lifting state{{ error }}</span>
   </div>
 </template>
 
@@ -29,4 +29,25 @@ export default {
 .hidden {
   display: none;
 }
+.input_main {
+  width: 80%;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input_main__label {
+  font: normal normal bold 12px Inter;
+  color: var(--color-primary);
+  margin-bottom: 5px;
+}
+
+.input_main__data {
+  height: 25px;
+  border: 1px solid #020738;
+  border-radius: 8px;
+}
+
+
+
 </style>

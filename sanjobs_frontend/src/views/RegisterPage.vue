@@ -1,7 +1,7 @@
 <template>
   <div class="center">
-    <div class="cadastrar">
-      <MainHeading text="Cadastre-se"/>
+    <div class="form_cadastrar">
+      <MainHeading text="Cadastre-se" size="20px"/>
       <InputMain label="Nome" type="text"
                  placeholder="Digite seu nome" error="Nome inválido"
                  model="name" @update="(data) => this.setName(data)"/>
@@ -76,10 +76,13 @@ export default {
 </script>
 
 <style scoped>
-.cadastrar {
+.form_cadastrar {
+  margin-top: 30px;
   width: 320px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #F7F8E5;
 }
 </style>

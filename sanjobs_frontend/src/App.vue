@@ -31,6 +31,10 @@ export default {
 
 body { margin: 0; }
 
+.center {
+  display: flex;
+  justify-content: center;
+}
 
 .highlighted { color: var(--color-highlight) }
 

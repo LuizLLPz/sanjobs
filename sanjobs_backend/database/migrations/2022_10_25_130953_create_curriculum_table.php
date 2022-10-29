@@ -15,17 +15,16 @@ return new class extends Migration
     {
         Schema::create('Curriculum', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained('User');
-            $table->text('description');
-            $table->float('desired_wage');
+            $table->text('description')->nullable();
+            $table->float('desired_wage')->nullable();
             $table->date('update_at');
             $table->string('country');
             $table->foreignId('city_id');
             $table->foreign('city_id')
                 ->references('id')
                 ->on('City');
-            $table->string('district');
-            $table->string('road');
-            $table->string('email');
+            $table->string('district')->nullable();
+            $table->string('road')->nullable();
         });
     }
 

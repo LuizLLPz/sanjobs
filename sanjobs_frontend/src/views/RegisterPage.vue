@@ -2,20 +2,26 @@
   <div class="center">
     <div class="cadastrar">
       <MainHeading text="Cadastre-se"/>
-      <InputMain label="Nome" type="text" placeholder="Digite seu nome" error="Nome inválido"
-                 model="name" @update="(data) => this.setData(data, this.setName)"/>
+      <InputMain label="Nome" type="text"
+                 placeholder="Digite seu nome" error="Nome inválido"
+                 model="name" @update="(data) => this.setName(data)"/>
 
-      <InputMain label="Sobrenome" type="text" placeholder="Digite seu sobrenome" error="Sobrenome inválido"
-                 model="surname" @update="(data) => this.setData(data, this.setSurnmame)"/>
+      <InputMain label="Sobrenome" type="text"
+                 placeholder="Digite seu sobrenome" error="Sobrenome inválido"
+                 model="surname" @update="(data) => this.setSurnmame(data)"/>
 
-      <InputMain label="Email" type="email" placeholder="Digite seu email" error="Email inválido"
-                 model="email" @update="(data) => this.setData(data, this.setEmail)"/>
+      <InputMain label="Email" type="email"
+                 placeholder="Digite seu email" error="Email inválido"
+                 model="email" @update="(data) => this.setEmail(data)"/>
 
-      <InputMain label="Senha" type="password" placeholder="Digite sua senha" error="Senha inválida"
-                  model="password" @update="(data) => this.setData(data, this.setPassword)"/>
+      <InputMain label="Senha" type="password"
+                 placeholder="Digite sua senha" error="Senha inválida"
+                 model="password" @update="(data) => this.setPassword(data)"/>
 
-      <InputMain label="Confirme sua senha" type="password" placeholder="Confirme sua senha" error="Senha inválida"
-                  model="password_confirmation"/>
+      <InputMain label="Confirme sua senha" type="password"
+                 placeholder="Confirme sua senha" error="Senha inválida"
+                 model="password_confirmation"/>
+
       <textarea placeholder="Descrição" v-model="overview">
       </textarea>
       <button @click="registerUser">Cadastrar</button>
@@ -50,9 +56,6 @@ export default {
       this.password = password;
     },
 
-    setData(data, callback) {
-      callback(data);
-    },
     registerUser() {
       fetch('http://localhost:8000/api/user', {
         method: 'POST',

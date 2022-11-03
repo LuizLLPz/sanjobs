@@ -2,7 +2,7 @@
   <div class="input_main">
     <span class="input_main__label">{{ label }}</span>
     <input class="input_main__data" v-bind:type="type" v-bind:placeholder="placeholder"
-           @change="(e) => emitParent(e)">
+           @change="$emit('update:modelValue', $event.target.value)">
     <span class="input_main__error hidden">lifting state{{ error }}</span>
   </div>
 </template>
@@ -15,12 +15,7 @@ export default {
     type: String,
     placeholder: String,
     error: String,
-    model: String
-  },
-  methods: {
-    emitParent(e) {
-      this.$emit('update', e.target.value);
-    }
+    modelValue: String
   },
 }
 </script>
@@ -30,7 +25,7 @@ export default {
   display: none;
 }
 .input_main {
-  width: 80%;
+  width: 95%;
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;

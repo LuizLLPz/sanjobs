@@ -2,27 +2,27 @@
   <div class="center">
     <div class="form_cadastrar">
       <MainHeading text="Cadastre-se" size="20px"/>
-      <InputMain label="Nome" type="text"
+      <InputMain label="Nome (*)" type="text"
                  placeholder="Digite seu nome" error="Nome inválido"
-                 model="name" @update="(data) => this.setName(data)"/>
+                 v-model="name"/>
 
-      <InputMain label="Sobrenome" type="text"
+      <InputMain label="Sobrenome (*)" type="text"
                  placeholder="Digite seu sobrenome" error="Sobrenome inválido"
-                 model="surname" @update="(data) => this.setSurnmame(data)"/>
+                 v-model="surname"/>
 
-      <InputMain label="Email" type="email"
+      <InputMain label="Email (*)" type="email"
                  placeholder="Digite seu email" error="Email inválido"
-                 model="email" @update="(data) => this.setEmail(data)"/>
+                 v-model="email"/>
 
-      <InputMain label="Senha" type="password"
+      <InputMain label="Senha (*)" type="password"
                  placeholder="Digite sua senha" error="Senha inválida"
-                 model="password" @update="(data) => this.setPassword(data)"/>
+                 v-model="password"/>
 
-      <InputMain label="Confirme sua senha" type="password"
+      <InputMain label="Confirmar senha (*)" type="password"
                  placeholder="Confirme sua senha" error="Senha inválida"
-                 model="password_confirmation"/>
+                 v-model="password_confirmation"/>
 
-      <textarea placeholder="Descrição" v-model="overview">
+      <textarea placeholder="Descrição..." v-model="overview">
       </textarea>
       <button @click="registerUser">Cadastrar</button>
     </div>
@@ -40,22 +40,6 @@ export default {
     InputMain
   },
   methods: {
-    setName: function (name) {
-      this.name = name;
-    },
-
-    setSurnmame: function (surnmame) {
-      this.surnmame = surnmame;
-    },
-
-    setEmail: function (email) {
-      this.email = email;
-    },
-
-    setPassword: function (password) {
-      this.password = password;
-    },
-
     registerUser() {
       fetch('http://localhost:8000/api/user', {
         method: 'POST',
@@ -64,7 +48,7 @@ export default {
         },
         body: JSON.stringify({
           name: this.name,
-          surname: this.surnmame,
+          surname: this.surname,
           email: this.email,
           password: this.password,
           overview: this.overview
@@ -79,7 +63,7 @@ export default {
 .form_cadastrar {
   margin-top: 30px;
   width: 320px;
-  padding: 10px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;

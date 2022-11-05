@@ -22,9 +22,11 @@
                  placeholder="Confirme sua senha" error="Senha inválida"
                  v-model="password_confirmation"/>
 
-      <textarea placeholder="Descrição..." v-model="overview">
-      </textarea>
-      <button @click="registerUser">Cadastrar</button>
+      <TextArea label="Descrição breve"
+                placeholder="Digite uma breve descrição sobre você"
+                v-model="overview"/>
+      <ButtonMain br="12px" @click="registerUser">Cadastrar</ButtonMain>
+      <ButtonMain br="12px">Resetar</ButtonMain>
     </div>
   </div>
 </template>
@@ -32,10 +34,14 @@
 <script>
 import MainHeading from "@/components/typography/MainHeading";
 import InputMain from '@/components/form/InputMain.vue';
+import TextArea from "@/components/form/TextArea";
+import ButtonMain from "@/components/layout/Button";
 
 export default {
   name: "RegisterPage",
   components: {
+    ButtonMain,
+    TextArea,
     MainHeading,
     InputMain
   },
@@ -61,7 +67,7 @@ export default {
 
 <style scoped>
 .form_cadastrar {
-  margin-top: 30px;
+  margin-top: 20px;
   width: 320px;
   padding: 20px;
   display: flex;

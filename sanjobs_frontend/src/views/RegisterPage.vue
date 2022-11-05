@@ -1,6 +1,6 @@
 <template>
   <div class="center">
-    <div class="form_cadastrar">
+    <form class="form_cadastrar">
       <MainHeading text="Cadastre-se" size="20px"/>
       <InputMain label="Nome (*)" type="text"
                  placeholder="Digite seu nome" error="Nome inválido"
@@ -26,8 +26,8 @@
                 placeholder="Digite uma breve descrição sobre você"
                 v-model="overview"/>
       <ButtonMain br="12px" @click="registerUser">Cadastrar</ButtonMain>
-      <ButtonMain br="12px">Resetar</ButtonMain>
-    </div>
+      <ButtonMain br="12px" @click="resetForm">Resetar</ButtonMain>
+    </form>
   </div>
 </template>
 
@@ -60,6 +60,14 @@ export default {
           overview: this.overview
         })
       });
+    },
+    resetForm() {
+      this.name = '';
+      this.surname = '';
+      this.email = '';
+      this.password = '';
+      this.overview = '';
+      document.querySelector('.form_cadastrar').reset();
     }
   }
 }
@@ -67,7 +75,7 @@ export default {
 
 <style scoped>
 .form_cadastrar {
-  margin-top: 20px;
+  margin-top: 10px;
   width: 320px;
   padding: 20px;
   display: flex;

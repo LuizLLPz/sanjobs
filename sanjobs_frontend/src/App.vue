@@ -3,7 +3,6 @@
   <NavBar/>
   <router-view></router-view>
   <div class="footer">
-
   </div>
 </template>
 
@@ -76,8 +75,6 @@ body { margin: 0; }
   gap: 10px;
 }
 
-.footer {
-  height: calc(65px + 50px);
-}
+.footer { height: calc(65px + 50px); }
 
 </style>

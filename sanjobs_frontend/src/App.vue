@@ -2,6 +2,9 @@
 <template>
   <NavBar/>
   <router-view></router-view>
+  <div class="footer">
+
+  </div>
 </template>
 
  <script>
@@ -66,13 +69,15 @@ body { margin: 0; }
   border-radius: 14px;
 }
 
-.footer { height: 200px; }
-
 .job_container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
+}
+
+.footer {
+  height: calc(65px + 50px);
 }
 
 </style>

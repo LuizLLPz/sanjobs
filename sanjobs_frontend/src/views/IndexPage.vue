@@ -13,9 +13,6 @@
     <HighlightHeading text="Vagas relacionadas a" highlight='"marketing e design"'></HighlightHeading>
     <JobCard v-for="job of jobs" v-bind:job="job" v-bind:key="job"/>
   </div>
-  <div class="footer">
-
-  </div>
 
 </template>
 

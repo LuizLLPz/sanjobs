@@ -1,8 +1,8 @@
 <template>
 
-  <div class="navbar__link">
+  <div class="navbar__link" @click="this.$router.push(vlink)">
     <div class="navbar__link__image fa-solid" :class=" faIcon "></div>
-    <router-link class="navbar__link__anchor" v-bind:to="vlink">{{ name }}</router-link>
+    <a class="navbar__link__anchor">{{ name }}</a>
   </div>
 </template>
 

@@ -4,7 +4,7 @@
       <MainHeading text="Cadastre-se" size="20px"/>
       <InputMain label="Nome (*)" type="text"
                  placeholder="Digite seu nome" error="Nome inválido"
-                 v-model="name"/>
+                 v-model="firstName"/>
 
       <InputMain label="Sobrenome (*)" type="text"
                  placeholder="Digite seu sobrenome" error="Sobrenome inválido"
@@ -39,6 +39,7 @@ import ButtonMain from "@/components/layout/Button";
 
 export default {
   name: "RegisterPage",
+  firstName: "",
   components: {
     ButtonMain,
     TextArea,
@@ -53,7 +54,7 @@ export default {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          name: this.name,
+          name: this.firstName,
           surname: this.surname,
           email: this.email,
           password: this.password,
@@ -62,7 +63,7 @@ export default {
       });
     },
     resetForm() {
-      this.name = '';
+      this.firstName = '';
       this.surname = '';
       this.email = '';
       this.password = '';

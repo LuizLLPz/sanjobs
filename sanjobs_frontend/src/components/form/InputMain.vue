@@ -46,4 +46,6 @@ export default {
   border: 1px solid #020738;
   border-radius: 8px;
 }
+
+
 </style>

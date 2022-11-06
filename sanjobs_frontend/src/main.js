@@ -3,10 +3,12 @@ import App from './App.vue'
 import { createRouter, createWebHistory } from "vue-router";
 import IndexPage from "@/views/IndexPage";
 import RegisterPage from "@/views/RegisterPage";
+import JobsPage from "@/views/JobsPage";
 
 const routes = [
     { path: '/', component: IndexPage },
     { path: '/register', component: RegisterPage },
+    { path: '/jobs', component: JobsPage },
 ]
 
 const router = createRouter({

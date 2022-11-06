@@ -5,7 +5,7 @@
     </div>
     <div class="navbar__link_container">
       <NavBarLink vlink="/" name="Main" fa-icon="fa-house"/>
-      <NavBarLink vlink="/vagas" name="Vagas" fa-icon="fa-suitcase"/>
+      <NavBarLink vlink="/jobs" name="Vagas" fa-icon="fa-suitcase"/>
       <NavBarLink vlink="/empresas" name="Empresas" fa-icon="fa-building-columns"/>
       <NavBarLink vlink="/curriculo" name="Currículo" fa-icon="fa-file-lines"/>
       <NavBarLink vlink="/mensagens" name="Mensagens" fa-icon="fa-envelope"/>

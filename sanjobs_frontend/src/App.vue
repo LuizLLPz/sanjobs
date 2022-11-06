@@ -30,6 +30,8 @@ export default {
   --color-form: #BBB1E5;
 }
 
+input:focus, textarea:focus, a:focus { outline: 2px solid var(--color-primary); }
+
 
 body { margin: 0; }
 
@@ -76,5 +78,6 @@ body { margin: 0; }
 }
 
 .footer { height: calc(65px + 50px); }
+
 
 </style>

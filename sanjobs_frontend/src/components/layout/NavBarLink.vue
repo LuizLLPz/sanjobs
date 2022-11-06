@@ -2,7 +2,7 @@
 
   <div class="navbar__link">
     <div class="navbar__link__image fa-solid" :class=" faIcon "></div>
-    <a href="" class="navbar__link__anchor">{{ name }}</a>
+    <router-link class="navbar__link__anchor" v-bind:to="vlink">{{ name }}</router-link>
   </div>
 </template>
 

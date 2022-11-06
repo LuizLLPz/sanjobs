@@ -5,21 +5,15 @@
     <p class="heading__secondary">
       Com o Sanjobs encontrar emprego se torna uma tarefa muito mais fácil!
     </p>
-    <button class="heading__action">
+    <button class="heading__action" @click="this.$router.push('/jobs')">
       Ver oportunidades
     </button>
-  </div>
-  <div class="job_container">
-    <HighlightHeading text="Vagas relacionadas a" highlight='"marketing e design"'></HighlightHeading>
-    <JobCard v-for="job of jobs" v-bind:job="job" v-bind:key="job"/>
   </div>
 
 </template>
 
 <script>
 import MainHeading from "@/components/typography/MainHeading";
-import HighlightHeading from "@/components/typography/HighlightHeading";
-import JobCard from "@/components/jobs/JobCard";
 
 
 export default {
@@ -27,20 +21,6 @@ export default {
 
   components: {
     MainHeading,
-    JobCard,
-    HighlightHeading,
-  },
-  data() {
-    return {
-      jobs: [{
-        title: 'Auxiliar administrativo',
-        wage: 'R$1.200',
-        publishedAt: 'Publicado há 1 dia',
-        city: 'São José dos Pinhais',
-        company: 'Maçã',
-        modality: 'Presencial',
-        seniority: 'Auxiliar'
-      }]}
   },
 }
 </script>

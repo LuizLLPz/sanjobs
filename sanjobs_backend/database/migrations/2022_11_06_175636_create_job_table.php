@@ -32,15 +32,13 @@ return new class extends Migration
         Schema::create('Skill', function(Blueprint $table) {
             $table->id();
             $table->string('name', 75);
-            $table->tinyInteger('level');
-
         });
 
         Schema::create('job_tag', function(Blueprint $table) {
             $table->foreignId('job_id');
             $table->foreign('job_id')->references('id')->on('Job');
             $table->foreignId('tag_id');
-            // use tag id for both area and skill without diuplicate error
+            $table->tinyInteger('level');
             $table->foreign('tag_id', 'job_tag_area_id_foreign')->references('id')->on('Area');
             $table->foreign('tag_id', 'job_tag_skill_id_foreign')->references('id')->on('Skill');
         });
@@ -53,9 +51,9 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('job_tag');
         Schema::dropIfExists('Job');
         Schema::dropIfExists('Area');
         Schema::dropIfExists('Skill');
-        Schema::dropIfExists('job_tag');
     }
 };

@@ -1,9 +1,11 @@
 <template>
-  <div class="center">
-    <MainHeading text="Vagas disponíveis"/>
-    <div class="job_container">
-      <JobCard v-for="job of jobs"
-               v-bind:job="job" v-bind:key="job"/>
+  <div class="content">
+    <div class="center">
+      <MainHeading text="Vagas disponíveis"/>
+      <div class="job_container">
+        <JobCard v-for="job of jobs"
+                 v-bind:job="job" v-bind:key="job"/>
+      </div>
     </div>
   </div>
 
@@ -39,8 +41,12 @@ export default {
 </script>
 
 <style scoped>
+  .content {
+     margin-top: 10%;
+  }
+
   .job_container {
-    margin-top: 20px;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     gap: 10px;

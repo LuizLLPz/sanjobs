@@ -2,9 +2,11 @@
   <div class="job_card">
 
     <div class="job_card__company">
-      <div class="job_company__logo"></div>
+      <div class="job_company__logo">
+          LOGO
+      </div>
       <div class="job_company__name">
-        {{ job.company }}
+        {{ job.company_name}}
       </div>
     </div>
 
@@ -83,6 +85,13 @@ export default {
 .job_card__company {
   max-height: 100%;
   grid-template-rows: 4fr 2fr;
+}
+
+.job_company__logo {
+  display: flex;
+  align-items: center;
+  width: 20%;
+  height: 60%;
 }
 
 .job_company__name {

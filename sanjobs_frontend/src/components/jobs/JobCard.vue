@@ -42,7 +42,6 @@ export default {
   },
   methods: {
     setDate: function (date) {
-      //date year/month/day format
       const now = new Date()
       date = date.substr(0, 10);
       const postDate = new Date(date)

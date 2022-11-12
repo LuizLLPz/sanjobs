@@ -19,7 +19,7 @@
         {{ job.wage }}
       </div>
       <div class="job_main__published">
-        {{ job.publishedAt }}
+        {{ setDate(job.post_date) }}
       </div>
     </div>
 
@@ -39,6 +39,31 @@
 export default {
   props: {
     job: {}
+  },
+  methods: {
+    setDate: function (date) {
+      //date year/month/day format
+      const now = new Date()
+      date = date.substr(0, 10);
+      const postDate = new Date(date)
+      const dias = Math.ceil(Math.abs(now - postDate) / (1000 * 60 * 60 * 24))
+      switch (dias) {
+        case 0:
+          return "Hoje"
+        case 1:
+          return "Ontem"
+        default:
+          if (dias <= 13) {
+              return "Há uma semana"
+          } else if (dias < 31) {
+              return Math.round(dias / 7) + " semanas atrás"
+          } else if (dias < 62){
+              return "Há um mês"
+          } else {
+              return Math.round(dias / 30) + " meses atrás"
+          }
+      }
+    }
   }
 }
 </script>

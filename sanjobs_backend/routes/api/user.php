@@ -19,15 +19,24 @@ Route::post('/user', function (Request $request) {
             json_encode($resp),
             400);
     }
+    $id = null;
 
-    $id = DB::table('User')->insertGetId([
-        'name' => $name,
-        'surname' => $surname,
-        'email' => $email,
-        'password' => Hash::make($password),
-        'overview' => $overview,
-        'created_at' => now(),
-    ]);
+    try {
+        $id = DB::table('User')->insertGetId([
+            'name' => $name,
+            'surname' => $surname,
+            'email' => $email,
+            'password' => Hash::make($password),
+            'overview' => $overview,
+            'created_at' => now(),
+        ]);
+    } catch (\Illuminate\Database\QueryException $e) {
+        $resp->message = 'User already exists!';
+        return response(
+            json_encode($resp),
+            409);
+    }
+
     $sid = uniqid().$id;
     Redis::set($sid, $id);
     $resp->message = 'User registered successfully';

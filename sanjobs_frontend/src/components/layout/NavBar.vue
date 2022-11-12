@@ -4,11 +4,11 @@
       <SearchMain/>
     </div>
     <div class="navbar__link_container">
-      <NavBarLink name="Main" fa-icon="fa-house"/>
-      <NavBarLink name="Vagas" fa-icon="fa-suitcase"/>
-      <NavBarLink name="Empresas" fa-icon="fa-building-columns"/>
-      <NavBarLink name="Currículo" fa-icon="fa-file-lines"/>
-      <NavBarLink name="Mensagens" fa-icon="fa-envelope"/>
+      <NavBarLink vlink="/" name="Main" fa-icon="fa-house"/>
+      <NavBarLink vlink="/jobs" name="Vagas" fa-icon="fa-suitcase"/>
+      <NavBarLink vlink="/empresas" name="Empresas" fa-icon="fa-building-columns"/>
+      <NavBarLink vlink="/curriculo" name="Currículo" fa-icon="fa-file-lines"/>
+      <NavBarLink vlink="/mensagens" name="Mensagens" fa-icon="fa-envelope"/>
     </div>
   </div>
 </template>

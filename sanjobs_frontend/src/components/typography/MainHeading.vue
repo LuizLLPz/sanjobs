@@ -7,7 +7,8 @@
 <script>
 export default {
   props: {
-    text: String
+    text: String,
+    size: String,
   }
 }
 </script>
@@ -17,7 +18,7 @@ export default {
 .main-heading {
   color: var(--color-primary);
   font-family: Montserrat;
-  font-size: 32px;
+  font-size: v-bind("size ? size: '32px'");
   font-weight: 900;
 }
 </style>

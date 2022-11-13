@@ -98,6 +98,7 @@ export default {
   height: 50%;
 }
 
+
 .job_company__name {
   word-wrap: break-word;
   color: #3F4246;

@@ -1,6 +1,6 @@
 <template>
   <div class="main_card">
-    <MainHeading v-bind:title="title" />
+    <MainHeading v-bind:text="title" />
     <slot />
   </div>
 </template>

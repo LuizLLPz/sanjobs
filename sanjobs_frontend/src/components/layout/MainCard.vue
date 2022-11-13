@@ -1,6 +1,7 @@
 <template>
   <div class="main_card">
     <MainHeading v-bind:title="title" />
+    <slot />
   </div>
 </template>
 
@@ -21,5 +22,10 @@ export default {
 </script>
 
 <style scoped>
-
+.main_card {
+  background-color: v-bind("scheme ? scheme : '#F7F9F8'");
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
 </style>

@@ -1,7 +1,9 @@
 <template>
   <div>
     <MainCard title="Description">
-
+      <p>
+        {{ user.description }}}
+      </p>
     </MainCard>
   </div>
 </template>
@@ -13,6 +15,14 @@ export default {
   name: "UserPage",
   components: {
     MainCard
+  },
+  methods: {
+    fetchUser: function() {
+
+    }
+  },
+  mount: function (){
+    this.fetchUser();
   }
 
 }

@@ -2,9 +2,10 @@
   <div class="job_card">
 
     <div class="job_card__company">
-      <div class="job_company__logo">
-          LOGO
-      </div>
+      <img class="job_company__logo"
+            v-bind:src="job.company?.profilePicture"
+            alt="Logo"
+      />
       <div class="job_company__name">
         {{ job.company_name}}
       </div>
@@ -84,17 +85,21 @@ export default {
 
 .job_card__company {
   max-height: 100%;
-  grid-template-rows: 4fr 2fr;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .job_company__logo {
-  display: flex;
-  align-items: center;
-  width: 20%;
-  height: 60%;
+  width: 60%;
+  border-radius: 40px;
+  object-fit: cover;
+  height: 50%;
 }
 
 .job_company__name {
+  word-wrap: break-word;
   color: #3F4246;
   font: normal normal normal 10px Inter;
 }

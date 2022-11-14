@@ -12,7 +12,7 @@ const routes = [
     { path: '/login', component: LoginPage },
     { path: '/register', component: RegisterPage },
     { path: '/jobs', component: JobsPage },
-    { path: '/user', component: UserPage },
+    { path: '/profile', component: UserPage },
 ]
 
 const router = createRouter({

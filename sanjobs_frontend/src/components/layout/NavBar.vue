@@ -7,7 +7,7 @@
       <NavBarLink vlink="/" name="Main" fa-icon="fa-house"/>
       <NavBarLink vlink="/jobs" name="Vagas" fa-icon="fa-suitcase"/>
       <NavBarLink vlink="/empresas" name="Empresas" fa-icon="fa-building-columns"/>
-      <NavBarLink vlink="/curriculo" name="Currículo" fa-icon="fa-file-lines"/>
+      <NavBarLink vlink="/profile" name="Currículo" fa-icon="fa-file-lines"/>
       <NavBarLink vlink="/mensagens" name="Mensagens" fa-icon="fa-envelope"/>
     </div>
   </div>

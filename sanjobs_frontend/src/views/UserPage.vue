@@ -1,9 +1,6 @@
 <template>
   <div>
     <MainCard title="Description">
-      <p>
-        {{ user.description }}}
-      </p>
     </MainCard>
   </div>
 </template>
@@ -17,11 +14,16 @@ export default {
     MainCard
   },
   methods: {
-    fetchUser: function() {
-
+    fetchUser: async function() {
+      const res = await fetch('http://localhost:8000/api/session', {
+        method: 'GET',
+        credentials: 'include'
+      });
+      const data = await res.json();
+      console.log(data);
     }
   },
-  mount: function (){
+  mounted() {
     this.fetchUser();
   }
 

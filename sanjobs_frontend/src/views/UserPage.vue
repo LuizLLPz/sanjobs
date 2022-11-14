@@ -19,8 +19,11 @@ export default {
         method: 'GET',
         credentials: 'include'
       });
-      const data = await res.json();
-      console.log(data);
+      const {data} = await res.json();
+      if (res.status === 200) {
+        this.user = data;
+      }
+      console.log(this.user)
     }
   },
   mounted() {

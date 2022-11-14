@@ -31,6 +31,7 @@ export default {
             headers: {
               'Content-Type': 'application/json'
             },
+            credentials: 'include',
             body: JSON.stringify({
               email: this.email,
               password: this.password
@@ -38,7 +39,7 @@ export default {
           }
       );
       const data = await res.json();
-      alert(JSON.stringify(data));
+      console.log(data);
     }
   }
 }

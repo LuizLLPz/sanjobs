@@ -75,9 +75,7 @@ Route::post('/session', function (Request $request) {
     $resp->data = $user;
     $sid = uniqid() . $user->name;
     Redis::set($sid, $user->id);
-    return response(
-        json_encode($resp)
-    )->cookie('sid', $sid, 2 * 24 * 60);
+    return response(json_encode($resp))->cookie('sid', $sid, 2 * 24 * 60);
 });
 
 

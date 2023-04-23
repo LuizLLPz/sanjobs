@@ -1,11 +1,11 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import { createRouter, createWebHistory } from "vue-router";
-import IndexPage from "@/views/IndexPage";
-import LoginPage from "@/views/LoginPage";
-import RegisterPage from "@/views/RegisterPage";
-import JobsPage from "@/views/JobsPage";
-import UserPage from "@/views/UserPage";
+import IndexPage from "./views/IndexPage.vue";
+import LoginPage from "./views/LoginPage.vue";
+import RegisterPage from "./views/RegisterPage.vue";
+import JobsPage from "./views/JobsPage.vue";
+import UserPage from "./views/UserPage.vue";
 
 const routes = [
     { path: '/', component: IndexPage },

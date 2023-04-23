@@ -7,7 +7,7 @@
             alt="Logo"
       />
       <div class="job_company__name">
-        {{ job.company_name}}
+        {{ job.company?.name}}
       </div>
     </div>
 
@@ -22,7 +22,7 @@
         {{ job.wage }}
       </div>
       <div class="job_main__published">
-        {{ setDate(job.post_date) }}
+        {{ job.getDateStr() }}
       </div>
     </div>
 
@@ -38,33 +38,14 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import {Job} from "@/models/Jobs";
+
 export default {
   props: {
-    job: {}
-  },
-  methods: {
-    setDate: function (date) {
-      const now = new Date()
-      date = date.substr(0, 10);
-      const postDate = new Date(date)
-      const dias = Math.ceil(Math.abs(now - postDate) / (1000 * 60 * 60 * 24))
-      switch (dias) {
-        case 0:
-          return "Hoje"
-        case 1:
-          return "Ontem"
-        default:
-          if (dias <= 13) {
-              return "Há uma semana"
-          } else if (dias < 31) {
-              return Math.round(dias / 7) + " semanas atrás"
-          } else if (dias < 62){
-              return "Há um mês"
-          } else {
-              return Math.round(dias / 30) + " meses atrás"
-          }
-      }
+    job: {
+      type: Job,
+      required: true
     }
   }
 }

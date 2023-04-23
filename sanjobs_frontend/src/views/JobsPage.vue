@@ -4,16 +4,16 @@
       <MainHeading text="Vagas disponíveis"/>
       <div class="job_container">
         <JobCard v-for="job of jobs"
-                 v-bind:job="job" v-bind:key="job"/>
+                 v-bind:job="new Job(job)" v-bind:key="job"/>
       </div>
     </div>
   </div>
 
 </template>
-
 <script>
 import MainHeading from "@/components/typography/MainHeading";
 import JobCard from "@/components/jobs/JobCard";
+import {Job} from "@/models/Jobs";
 
 export default {
   name: "JobsPage",
@@ -23,9 +23,11 @@ export default {
   },
   data: function () {
     return {
-      jobs: []
+      jobs: [],
+      Job: Job // Declaração do construtor
     }
   },
+
   methods: {
     fetchJobs: async function () {
       const response = await fetch("http://localhost:8000/api/jobs");
@@ -37,8 +39,8 @@ export default {
     this.fetchJobs();
   }
 }
-
 </script>
+
 
 <style scoped>
   .content {

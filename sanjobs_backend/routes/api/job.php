@@ -4,21 +4,20 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Helpers\APIResponse;
 
-
 Route::get('/jobs', function (Request $request) {
     $resp = new APIResponse();
     $jobs = DB::table('Job as j')
-        ->join('User as c', 'c.id', '=', 'j.company_id')
+        ->join('User as company', 'company.id', '=', 'j.company_id')
         ->join('City as ci', 'ci.id',   '=', 'j.city_id')
         ->select('j.title',
             'j.description',
-            'j.post_date',
-            'c.name as company_name',
+            'j.post_date as postDate',
+            DB::raw('(SELECT JSON_OBJECT("name", name, "email", email) FROM User WHERE id = j.company_id) as company'),
             'ci.name as city')->get();
     $resp->data = $jobs;
+
     if (count($jobs) > 0) {
         $resp->message = "Jobs found";
-
         return json_encode($resp);
     } else {
         $resp->message = "No jobs found";
@@ -42,7 +41,7 @@ Route::post('/jobs', function (Request $request) {
     DB::table('Job')->insert([
         'title' => $title,
         'description' => $description,
-        'post_date' => now(),
+        'postDate' => now(),
         'company_id' => $company_id,
         'city_id' => $city_id,
     ]);
